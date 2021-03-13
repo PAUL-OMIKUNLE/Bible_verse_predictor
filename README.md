@@ -7,5 +7,5 @@ A)From flask we import **Flask,render_template,request and url_for
  also import pandas as pd  and import numpy as np** 
 B) For Machine learning packages,
 **from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.externals import joblib**
-6) Got the data from a github repo  
+from sklearn.externals import joblib** .............sill in progress
+ 
