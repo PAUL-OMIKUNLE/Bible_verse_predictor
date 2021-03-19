@@ -15,27 +15,29 @@ D) USING A WEB INTERFACE
 def index():
 	return render_template('index.html')** this line is to help us render the web page (created seperatly) for input of the bible verse and the ouput prediction 
  
- E)  PREDICTING using the data splitting it into features and target 
+ E)  Splitting the data it into features and target, since we would be inputing also we aould be suning the POST command and GET for our ouptput  
 **@app.route('/predict',methods=["GET","POST"])
 def predict():
 	df= pd.read_csv("data/kjvmindata.csv")
 	# Features and Labels
 	df_X = df.text
 	df_Y = df.label**
-F) VECTORIZATION OF FEATURES, so the machine can use the vectorized format to train and predict easily
+F) VECTORIZATION OF FEATURES, so the machine can use the vectorized format (numbers) to train and predict easily
 **orpus = df_X
 	cv = CountVectorizer()
 	X = cv.fit_transform(corpus)** 
-G) Loading our saved naive bayes model with Joblib 
-**naivebayes_model = open("models/biblepredictionNV_model.pkl","rb")
+G) Loading our saved naive bayes model (for classification) with Joblib 
+**naivebayes_model = open("C:\Users\paul\Downloads\bible model\biblepredictionNV_model.pkl","rb")
 	clf = joblib.load(naivebayes_model)**
-H) 
-if request.method == 'POST':
+H) For our input (raw text)  into the web page for prediction, POST because we are inputting  
+**if request.method == 'POST':
 		raw_text = request.form['rawtext']
-		data = [raw_text]
-		vect = cv.transform(data).toarray()
-		my_prediction = clf.predict(vect)
-		pred_score = clf.predict_proba(vect)
-		nlp_text = TextBlob(raw_text)
-		text_sentiment = nlp_text.sentiment.polarity
+		data = [raw_text]** 
+		to transfom the incoming words into vector form also 
+		**vect = cv.transform(data).toarray()
+		my_prediction = clf.predict(vect)** 
+		**pred_score = clf.predict_proba(vect)**
+		Using the text blob for the sentiment analysis  
+		**nlp_text = TextBlob(raw_text)**
+		text_sentiment = nlp_text.sentiment.polarity** 
 		verse_sentiment = text_sentiment
