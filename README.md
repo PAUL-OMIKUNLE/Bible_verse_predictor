@@ -2,9 +2,10 @@
 1) Created my work environment and installed the necessary libraries 
 2) Creation of the model saved as as a pickle file for easy reusability
 3) Creation of a web interface (using html and CSS) where the verses can be inputed and where the prediction of old or new testament can be diplayed with sentiment and probability score for old and new testament 
-4) Below is the explanantion of the app (app.py) itself using the pickled model (naive bayes for calssification, raw text in this case) 
+4) **Below** is the explanantion of the app (app.py) itself using the pickled model (naive bayes for calssification, raw text in this case) 
+
 <br /> A)From flask we import **Flask,render_template,request and url_for**
- also import pandas as pd  and import numpy as np** to render the html template and generate the url for the raw text input, pandas and numpy so we can read the data set to be used <br /> B) For Machine learning packages,
+ also **import pandas as pd  and import numpy as np** to render the html template and generate the url for the raw text input, pandas and numpy so we can read the data set to be used <br /> B) For Machine learning packages,
 **from sklearn.feature_extraction.text import CountVectorizer** to help identify the words in vector form from the data   
 **from sklearn.externals import joblib** to be able to use our serialized models that hve been created so asto save time
 <br /> c) For Natural language procesing 
