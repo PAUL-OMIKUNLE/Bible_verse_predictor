@@ -13,7 +13,6 @@
 **@app.route('/')
 def index():
 	return render_template('index.html')** this line is to help us render the web page (created seperatly) for input of the bible verse and the ouput prediction 
- 
  <br /> E)  Splitting the data it into features and target, since we would be inputing also we aould be suning the POST command and GET for our ouptput  
 **@app.route('/predict',methods=["GET","POST"])
 def predict():
