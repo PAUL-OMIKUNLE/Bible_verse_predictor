@@ -17,7 +17,7 @@ def index():
 **@app.route('/predict',methods=["GET","POST"])
 def predict():
 	df= pd.read_csv("data/kjvmindata.csv")
-	# Features and Labels
+	Features and Labels
 	df_X = df.text
 	df_Y = df.label**
 <br /> F) VECTORIZATION OF FEATURES, so the machine can use the vectorized format (numbers) to train and predict easily
