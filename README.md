@@ -27,7 +27,7 @@ F) VECTORIZATION OF FEATURES, so the machine can use the vectorized format (numb
 	cv = CountVectorizer()
 	X = cv.fit_transform(corpus)** 
 G) Loading our saved naive bayes model (for classification) with Joblib 
-**naivebayes_model = open("C:\Users\paul\Downloads\bible model\biblepredictionNV_model.pkl","rb")
+**naivebayes_model = open("models\biblepredictionNV_model.pkl","rb")
 	clf = joblib.load(naivebayes_model)**
 H) For our input (raw text)  into the web page for prediction, POST because we are inputting  
 **if request.method == 'POST':
@@ -39,5 +39,8 @@ H) For our input (raw text)  into the web page for prediction, POST because we a
 		**pred_score = clf.predict_proba(vect)**
 		Using the text blob for the sentiment analysis  
 		**nlp_text = TextBlob(raw_text)**
-		text_sentiment = nlp_text.sentiment.polarity** 
-		verse_sentiment = text_sentiment
+		**text_sentiment = nlp_text.sentiment.polarity 
+		verse_sentiment = text_sentiment**
+I) Returning the html output template based on the input		
+		**return render_template('index.html',prediction=my_prediction,pred_score=pred_score,verse_sentiment=verse_sentiment,raw_text=raw_text)**
+
