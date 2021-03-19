@@ -21,4 +21,21 @@ def predict():
 	df= pd.read_csv("data/kjvmindata.csv")
 	# Features and Labels
 	df_X = df.text
-	df_Y = df.label
+	df_Y = df.label**
+F) VECTORIZATION OF FEATURES, so the machine can use the vectorized format to train and predict easily
+**orpus = df_X
+	cv = CountVectorizer()
+	X = cv.fit_transform(corpus)** 
+G) Loading our saved naive bayes model with Joblib 
+**naivebayes_model = open("models/biblepredictionNV_model.pkl","rb")
+	clf = joblib.load(naivebayes_model)**
+H) 
+if request.method == 'POST':
+		raw_text = request.form['rawtext']
+		data = [raw_text]
+		vect = cv.transform(data).toarray()
+		my_prediction = clf.predict(vect)
+		pred_score = clf.predict_proba(vect)
+		nlp_text = TextBlob(raw_text)
+		text_sentiment = nlp_text.sentiment.polarity
+		verse_sentiment = text_sentiment
