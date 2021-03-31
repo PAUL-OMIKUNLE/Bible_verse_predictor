@@ -1,10 +1,12 @@
 from flask import Flask,render_template,request,url_for
 import pandas as pd 
 import numpy as np 
+import pickle
 
 # ML Packages
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.externals import joblib
+import joblib
+#from sklearn.externals import joblib
 
 # NLP
 from textblob import TextBlob 
@@ -14,7 +16,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+	return render_template('interface.html')
 
 
 @app.route('/predict',methods=["GET","POST"])
@@ -30,7 +32,7 @@ def predict():
 	X = cv.fit_transform(corpus) 
 
 	naivebayes_model = open("models/biblepredictionNV_model.pkl","rb")
-	clf = joblib.load(naivebayes_model)
+	clf = pickle.load(naivebayes_model)
 
 	if request.method == 'POST':
 		raw_text = request.form['rawtext']
@@ -42,7 +44,7 @@ def predict():
 		text_sentiment = nlp_text.sentiment.polarity
 		verse_sentiment = text_sentiment
 
-	return render_template('index.html',prediction=my_prediction,pred_score=pred_score,verse_sentiment=verse_sentiment,raw_text=raw_text)
+	return render_template('interface.html',prediction=my_prediction,pred_score=pred_score,verse_sentiment=verse_sentiment,raw_text=raw_text)
 
 
 if __name__ == '__main__':
