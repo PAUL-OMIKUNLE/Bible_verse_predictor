@@ -53,4 +53,7 @@ def predict():
 
 <br />I) Returning the html output template based on the input		
 		**return render_template('index.html',prediction=my_prediction,pred_score=pred_score,verse_sentiment=verse_sentiment,raw_text=raw_text)**
+		
+		
+![alt text] https://github.com/PAUL-OMIKUNLE/Bible_verse_predictor/blob/main/images/Screenshot%20(42).png		
 
