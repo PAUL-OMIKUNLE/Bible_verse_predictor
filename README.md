@@ -55,5 +55,5 @@ def predict():
 		**return render_template('index.html',prediction=my_prediction,pred_score=pred_score,verse_sentiment=verse_sentiment,raw_text=raw_text)**
 		
 		
-![alt text] (https://github.com/PAUL-OMIKUNLE/Bible_verse_predictor/blob/main/images/Screenshot%20(42).png)		
+![Screenshot (42)](https://user-images.githubusercontent.com/72666596/116101529-bf372480-a662-11eb-98e9-f51b0b673ab4.png)		
 
